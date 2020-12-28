@@ -1,12 +1,16 @@
-// import logo from './logo.svg';
+import React from 'react';
 import './Body.css';
 
-function App() {
-  return (
-    <div className="App">      
-      <p>여기가 본문</p>      
-    </div>
-  );
+class Body extends React.Component {
+
+  render () {
+
+    return (
+      <div className="Body">      
+        <p>여기가 본문입니다.</p>      
+      </div>
+    );
+  }
 }
 
-export default App;
+export default Body;
