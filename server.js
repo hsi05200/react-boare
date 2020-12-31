@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 const mongoose = require('mongoose');
-mongoose.connect(config.mongoURL, {
+mongoose.connect(config.mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
@@ -22,7 +22,7 @@ mongoose.connect(config.mongoURL, {
 }).then(() => console.log("MongoDB 연결성공!!"))
   .catch(err => console.log(err))
 
-app.get('/', (req, res) => res.send('Hello World, 새해복 많이 받으세요!!!!!!'));
+app.get('/', (req, res) => res.send('Hello World, 새해복 많이 받으세요!'));
 
 app.post('/register', (req, res) => {
 
