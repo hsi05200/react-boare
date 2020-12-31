@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const port = 5000;
 
+const config = require('./client/src/config/key');
+
 const bodyParser = require('body-parser');
 const { User } = require('./client/src/components/User');
 
@@ -12,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://root:sotkfkdgo*0tnr@logindb.gjbk9.mongodb.net/<dbname>?retryWrites=true&w=majority', {
+mongoose.connect(config.mongoURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
@@ -20,7 +22,7 @@ mongoose.connect('mongodb+srv://root:sotkfkdgo*0tnr@logindb.gjbk9.mongodb.net/<d
 }).then(() => console.log("MongoDB 연결성공!!"))
   .catch(err => console.log(err))
 
-app.get('/', (req, res) => res.send('Hello World!!'));
+app.get('/', (req, res) => res.send('Hello World, 새해복 많이 받으세요!!!!!!'));
 
 app.post('/register', (req, res) => {
 
